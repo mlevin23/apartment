@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartments Display</title>
+</head>
+<body>
+	<h2>Apartments</h2>
+	<table border="1">
+	    <tr>
+	    	<th>Id</th>
+	        <th>name</th>
+	        <th>address</th>
+	        <th>cost</th>
+	    </tr>
+	    <tr th:each = "apartment: ${apartments}">
+	    	<td th:text="${apartment.id}">1</td>
+	    	<td th:text="${apartment.name}">Maxim</td>
+	        <td th:text="${apartment.address}">45</td>
+	        <td th:text="${apartment.cost}">500</td>
+	        <td>
+	        	<a th:href="@{/apartment/edit/{id}(id=${apartment.id})}">edit</a>
+	        </td>
+	        <td>
+	        	<a th:href="@{/apartment/delete/{aID}(aID=${apartment.id})}">delete</a>
+	        </td>
+	        <td>
+	        	<a th:href="@{/user/add/{id}(id=${apartment.id})}">Add user</a>
+	        </td>
+	        <td>
+	        	<a th:href="@{/payment/add/{id}(id=${apartment.id})}">Add Payment</a>
+	        </td>
+	    </tr>
+	</table>
+	<h3><a href="/apartment/formadd">Add Apartment</a></h3>
+</body>
+</html>

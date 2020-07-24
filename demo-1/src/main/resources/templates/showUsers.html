@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User Display</title>
+</head>
+<body>
+	<h2>Users</h2>
+	<table border="1">
+	    <tr>
+	    	<th>uID</th>
+	        <th>name</th>
+	        <th>birthday</th>
+	        <th>aID</th>
+	    </tr>
+	    <tr th:each = "user: ${users}">
+	    	<td th:text="${user.id}">1</td>
+	    	<td th:text="${user.name}">Maxim</td>
+	        <td th:text="${user.birthday}">45</td>
+	        <td th:text="${user.aID}">500</td>
+	        <td>
+	        	 <a th:href="@{/user/edit/{id}(id=${user.id})}">edit</a>
+	        </td>
+	        <td>
+	        	<a th:href="@{/user/delete/{id}(id=${user.id})}">delete</a>
+	        </td>
+	    </tr>
+	</table>
+</body>
+</html>

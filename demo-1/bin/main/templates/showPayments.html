@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Display</title>
+</head>
+<body>
+	<h2>Payments</h2>
+	<table border="1">
+	    <tr>
+	    	<th>pID</th>
+	        <th>name</th>
+	        <th>address</th>
+	        <th>amount</th>
+	        <th>date</th>
+	        <th>aID</th>
+	    </tr>
+	    <tr th:each = "payment: ${payments}">
+	    	<td th:text="${payment.id}">1</td>
+	    	<td th:text="${payment.name}">Maxim</td>
+	        <td th:text="${payment.address}">45</td>
+	        <td th:text="${payment.amount}">500</td>
+	        <td th:text="${payment.date}">01-01-2000</td>
+	        <td th:text="${payment.aID}">1</td>
+	        <td>
+	        	 <a th:href="@{/payment/edit/{id}(id=${payment.id})}">edit</a>
+	        </td>
+	        <td>
+	        	<a th:href="@{/payment/delete/{id}(id=${payment.id})}">delete</a>
+	        </td>
+	    </tr>
+	</table>
+</body>
+</html>
